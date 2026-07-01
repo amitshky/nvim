@@ -36,7 +36,7 @@ vim.o.path = vim.o.path .. "**"
 vim.o.signcolumn = "yes" -- show/hide a column for error, warning signs; "no", "yes", "yes:<width>" eg: "yes:1"
 vim.o.laststatus = 3
 vim.o.showtabline = 0
-vim.o.colorcolumn = "80"
+vim.o.colorcolumn = "81"
 
 -- winbar with tab number and file icon
 local devicons = require("nvim-web-devicons")
@@ -52,8 +52,8 @@ _G.winbar = function()
     vim.fn.tabpagenr(),
     vim.fn.tabpagenr('$'),
     icon,
-    "%f",     -- filename
-    "%m"      -- modified
+    "%f", -- filename
+    "%m"  -- modified
   )
 end
 vim.o.winbar = "%{%v:lua.winbar()%}"
