@@ -46,7 +46,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'grr', '<cmd>Pick lsp scope="references"<cr>',
       { desc = "Go to references", buffer = args.buf })
 
-    vim.keymap.set('n', '<leader>lo', '<cmd>ClangdSwitchSourceHeader<cr>',
+    vim.keymap.set('n', '<leader>lo', '<cmd>LspClangdSwitchSourceHeader<cr>',
       { desc = "Switch source and header (C++)", buffer = args.buf })
 
     vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename,
