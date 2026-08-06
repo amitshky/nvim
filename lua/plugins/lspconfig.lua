@@ -31,8 +31,20 @@ return {
             })
 
       vim.lsp.config("bashls", { capabilities = cap })
-      vim.lsp
-          .config("pylsp", { capabilities = cap })
+
+      vim.lsp.config("pylsp", {
+        capabilities = cap,
+        settings = {
+          pylsp = {
+            plugins = {
+              pycodestyle = {
+                ignore = { "E501" },
+                -- or maxLineLength = 88 if you use Black
+              },
+            },
+          },
+        },
+      })
 
       vim.lsp.enable({ "lua_ls", "clangd", "bashls", "pylsp" })
     end,
