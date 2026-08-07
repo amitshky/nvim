@@ -37,6 +37,7 @@ vim.o.signcolumn = "yes" -- show/hide a column for error, warning signs; "no", "
 vim.o.laststatus = 3
 vim.o.showtabline = 0
 vim.o.colorcolumn = "81"
+vim.o.winborder = "single"
 
 -- winbar with tab number and file icon
 local devicons = require("nvim-web-devicons")
@@ -68,15 +69,6 @@ vim.api.nvim_set_hl(0, "OilDir", { fg = "#83A598" })
 vim.diagnostic.config({
   -- remove inline diagnostic messages
   virtual_text = false,
-})
-
-vim.lsp.config("*", {
-  hover = {
-    border = "single",
-  },
-  signature_help = {
-    border = "single",
-  },
 })
 
 -- change c comments to //
