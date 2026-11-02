@@ -4,7 +4,7 @@ return {
     require("lualine").setup({
       options = {
         icons_enabled = false,
-        theme = 'codedark',
+        theme = dofile(vim.fn.stdpath("config") .. "/themes/lualine_custom.lua"),
       },
       sections = {
         lualine_b = { 'branch' },
