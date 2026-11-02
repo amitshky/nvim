@@ -1,11 +1,11 @@
 local colors = {
-  gray     = '#3C3C3C',
-  lightred = '#D16969',
-  blue     = '#569CD6',
-  pink     = '#C586C0',
-  black    = '#262626',
-  white    = '#DDCEA8',
-  green    = '#608B4E',
+  gray     = '#504945',
+  lightred = '#FB4934',
+  blue     = '#83A598',
+  pink     = '#D3869B',
+  black    = '#282828',
+  white    = '#EBDBB2',
+  green    = '#B8BB26',
 }
 
 return {
