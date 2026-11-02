@@ -5,7 +5,7 @@ local colors = {
   pink     = '#D3869B',
   black    = '#282828',
   white    = '#EBDBB2',
-  green    = '#B8BB26',
+  green    = '#98971A',
 }
 
 return {
