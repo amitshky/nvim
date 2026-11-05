@@ -3,11 +3,22 @@ return {
     'nvim-mini/mini.pick',
     version = '*',
     config = function()
-      require("mini.pick").setup({
+      local miniPick = require("mini.pick")
+
+      miniPick.setup({
+        source = {
+          preview = function(buf_id, item)
+            miniPick.default_preview(buf_id, item, {
+              line_position = "center",
+              n_context_lines = 20,
+            })
+          end,
+        },
+
         window = {
           config = function()
             local height = math.floor(0.618 * vim.o.lines)
-            local width  = math.floor(0.618 * vim.o.columns)
+            local width = math.floor(0.618 * vim.o.columns)
 
             return {
               relative = "editor",

@@ -3,11 +3,46 @@ return {
   version = "*",
   dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
+    local function get_snipe_tag(bufnr)
+      local snipe = require("snipe")
+      local config = require("snipe.config")
+      local buffers = snipe.get_sorted_buffer_list()
+      local dictionary = config.hints.dictionary
+      local base = #dictionary
+      local index
+      for i, buf in ipairs(buffers) do
+        if buf.id == bufnr then
+          index = i - 1
+          break
+        end
+      end
+      if index == nil then
+        return nil
+      end
+      local function generate_tag(n)
+        local tag = ""
+        repeat
+          tag = dictionary:sub((n % base) + 1, (n % base) + 1) .. tag
+          n = math.floor(n / base)
+        until n == 0
+        return tag
+      end
+      local max_length = #generate_tag(#buffers - 1)
+      return string.rep(dictionary:sub(1, 1), max_length - #generate_tag(index))
+          .. generate_tag(index)
+    end
     require("bufferline").setup({
       options = {
         mode = "buffers",
         always_show_bufferline = true,
         show_buffer_close_icons = false,
+        name_formatter = function(buf)
+          local tag = get_snipe_tag(buf.bufnr)
+          if tag then
+            return "(" .. tag .. ") " .. buf.name
+          end
+          return buf.name
+        end,
       },
       highlights = {
         fill = {
