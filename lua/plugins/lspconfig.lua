@@ -46,7 +46,9 @@ return {
         },
       })
 
-      vim.lsp.enable({ "lua_ls", "clangd", "bashls", "pylsp" })
+      vim.lsp.config("texlab", { capabilities = cap })
+
+      vim.lsp.enable({ "lua_ls", "clangd", "bashls", "pylsp", "texlab" })
     end,
   },
 }

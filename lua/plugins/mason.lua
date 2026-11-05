@@ -14,6 +14,7 @@ return {
           "clangd",
           "bashls",
           "pylsp",
+          "texlab",
         },
         automatic_installation = true,
       })

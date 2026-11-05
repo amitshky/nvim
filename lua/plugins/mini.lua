@@ -39,7 +39,21 @@ return {
     'nvim-mini/mini.surround',
     version = '*',
     config = function()
-      require("mini.surround").setup()
+      require("mini.surround").setup({
+        custom_surroundings = {
+          -- No spaces
+          ["("] = { output = { left = "(", right = ")" } },
+          ["["] = { output = { left = "[", right = "]" } },
+          ["{"] = { output = { left = "{", right = "}" } },
+          ["<"] = { output = { left = "<", right = ">" } },
+
+          -- With spaces
+          [")"] = { output = { left = "( ", right = " )" } },
+          ["]"] = { output = { left = "[ ", right = " ]" } },
+          ["}"] = { output = { left = "{ ", right = " }" } },
+          [">"] = { output = { left = "< ", right = " >" } },
+        },
+      })
     end,
   },
 
